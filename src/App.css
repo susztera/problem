@@ -1,0 +1,194 @@
+/* Import a cute font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #ffe4e1; /* Misty Rose */
+}
+
+.pink-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffc0cb 100%);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 800px;
+  height: 85vh;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(219, 112, 147, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: 4px solid #fff;
+}
+
+.title {
+  color: #db7093; /* PaleVioletRed */
+  text-align: center;
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0px #ffd1dc;
+}
+
+.subtitle {
+  color: #ff69b4; /* HotPink */
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+/* Upload Button Styling */
+.upload-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #ffb7c5;
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  border: 2px solid white;
+}
+
+.custom-file-upload:hover {
+  background-color: #ff69b4;
+  transform: translateY(-2px);
+}
+
+/* Filter Input Styling */
+.search-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #ffc0cb;
+  background-color: #fff0f5;
+  color: #db7093;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+/* Log Window Styling */
+.log-window {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-right: 10px;
+  /* Cute Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #ffb7c5 #fff;
+}
+
+.log-window::-webkit-scrollbar {
+  width: 8px;
+}
+.log-window::-webkit-scrollbar-track {
+  background: #fff; 
+  border-radius: 10px;
+}
+.log-window::-webkit-scrollbar-thumb {
+  background-color: #ffb7c5; 
+  border-radius: 10px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #db7093;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* Individual Log Rows */
+.log-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.log-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.log-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-prefix {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.log-text {
+  word-break: break-all;
+  font-family: 'Courier New', Courier, monospace; /* Monospace for technical accuracy */
+  font-weight: 600;
+}
+
+/* Theming based on Log Level */
+
+/* INFO / Default */
+.log-entry-info {
+  background-color: #fff;
+  border-left: 5px solid #ffb7c5;
+  color: #555;
+}
+.log-entry-info .log-prefix { color: #ff69b4; }
+
+/* WARN */
+.log-entry-warn {
+  background-color: #fffaf0;
+  border-left: 5px solid #ffd700;
+  color: #665c00;
+}
+.log-entry-warn .log-prefix { color: #ffa500; }
+
+/* ERROR */
+.log-entry-error {
+  background-color: #fff0f0;
+  border-left: 5px solid #ff6b6b;
+  color: #8b0000;
+}
+.log-entry-error .log-prefix { color: #ff4d4d; }
+.log-entry-success .log-prefix { color: #2e8b57; }
